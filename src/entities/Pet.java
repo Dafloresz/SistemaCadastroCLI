@@ -4,19 +4,20 @@ public class Pet {
     private String nome;
     private Tipo tipo;
     private Sexo sexo;
-    private String localEncontrado;
-    private Double idade;
-    private Double peso;
+    private String idade;
+    private String peso;
     private String raca;
+
+    private Endereco endereco;
 
     public Pet (){
     }
 
-    public Pet(String nome, Tipo tipo, Sexo sexo, String localEncontrado, Double idade, Double peso, String raca) {
+    public Pet(String nome, Tipo tipo, Sexo sexo, Endereco endereco, String idade, String peso, String raca) {
         this.nome = nome;
         this.tipo = tipo;
         this.sexo = sexo;
-        this.localEncontrado = localEncontrado;
+        this.endereco = endereco;
         this.idade = idade;
         this.peso = peso;
         this.raca = raca;
@@ -46,27 +47,27 @@ public class Pet {
         this.sexo = sexo;
     }
 
-    public String getLocalEncontrado() {
-        return localEncontrado;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setLocalEncontrado(String localEncontrado) {
-        this.localEncontrado = localEncontrado;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
-    public Double getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(Double idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public Double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

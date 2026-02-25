@@ -1,12 +1,12 @@
-package service;
+package view;
 
 public class MenuView {
-    public void exibirMenu(){
+    public static void exibirMenu(){
         System.out.println();
         System.out.println(montarMenu());
     }
 
-    public String montarMenu(){
+    public static String montarMenu(){
         return  """
                ----------- MENU -----------
                1. Cadastrar um novo pet

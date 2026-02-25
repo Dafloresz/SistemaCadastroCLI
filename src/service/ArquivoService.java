@@ -31,21 +31,21 @@ public class ArquivoService {
         respostaUsuario.add(pet.getNome());
         respostaUsuario.add(String.valueOf(pet.getTipo()));
         respostaUsuario.add(String.valueOf(pet.getSexo()));
-        respostaUsuario.add(pet.getLocalEncontrado());
-        respostaUsuario.add(pet.getIdade() + "anos");
-        respostaUsuario.add(pet.getPeso() + "kg");
+        respostaUsuario.add(pet.getEndereco().toString());
+        respostaUsuario.add(pet.getIdade());
+        respostaUsuario.add(pet.getPeso());
         respostaUsuario.add(pet.getRaca());
 
         LocalDateTime horario = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
 
 
-        String path = "petsCadastrados\\" + horario.format(formatter).replace("-", "")
+        String path = "petsCadastrados\\" + horario.format(formatter).replace("-", "").replace("_", "T")
                 + "-" + pet.getNome().replace(" ", "").toUpperCase() + ".txt";
 
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(path))){
+            int num = 1;
             for(String resposta : respostaUsuario){
-                int num = 1;
                 bw.write(num + " - " + resposta);
                 bw.newLine();
                 num++;
