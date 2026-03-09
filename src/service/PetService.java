@@ -62,36 +62,6 @@ public class PetService {
 
     }
 
-    public String[] coletaCriterios(){
-        MenuView.exibeMenuBuscar();
-        System.out.print("Digite o(s) critério(s): ");
-        String entrada = sc.nextLine().toLowerCase().trim();
-
-        String[] formataEntrada = entrada.split(" e ");
-        String[] criterios = new String[formataEntrada.length + 1];
-
-        System.out.print("Digite o tipo do pet: ");
-        criterios[0] = sc.nextLine();
-
-        for(int i = 0; i < formataEntrada.length; i++){
-            System.out.print("Digite o " + formataEntrada[i] + ": ");
-            criterios[i + 1] = sc.nextLine();
-        }
-
-        return criterios;
-    }
-
-    public List<File> listaArquivos(){
-        File pasta = new File("petsCadastrados");
-        File[] arquivos = pasta.listFiles();
-
-        if(arquivos == null){
-            return new ArrayList<>();
-        }
-
-        return Arrays.asList(arquivos);
-    }
-
     public void buscaPetCriterio(String[] criterios, List<File> arquivos) {
         int contador = 1;
         boolean encontrou = false;
@@ -122,6 +92,55 @@ public class PetService {
         if (!encontrou) {
             System.out.println("Pet não encontrado!");
         }
+    }
+    
+    public void buscaTodosPet(List<File> arquivos){
+        int contador = 1;
+        for (File arquivo : arquivos) {
+            try {
+                List<String> linhas = Files.readAllLines(arquivo.toPath());
+                String conteudo = contador + ". " + String.join(" - ", linhas);
+                System.out.println(conteudo);
+
+                contador++;
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    
+
+    public String[] coletaCriterios(){
+        MenuView.exibeMenuBuscar();
+        System.out.print("Digite o(s) critério(s): ");
+        String entrada = sc.nextLine().toLowerCase().trim();
+
+        String[] formataEntrada = entrada.split(" e ");
+        String[] criterios = new String[formataEntrada.length + 1];
+
+        System.out.print("Digite o tipo do pet: ");
+        criterios[0] = sc.nextLine();
+
+        for(int i = 0; i < formataEntrada.length; i++){
+            System.out.print("Digite o " + formataEntrada[i] + ": ");
+            criterios[i + 1] = sc.nextLine();
+        }
+
+        return criterios;
+    }
+
+    public List<File> listaArquivos(){
+        File pasta = new File("petsCadastrados");
+        File[] arquivos = pasta.listFiles();
+
+        if(arquivos == null){
+            return new ArrayList<>();
+        }
+
+        return Arrays.asList(arquivos);
     }
 }
 
