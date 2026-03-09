@@ -4,7 +4,10 @@ import entities.Endereco;
 import entities.Pet;
 import entities.Sexo;
 import entities.Tipo;
+import exception.BuscarPetValidationException;
+import service.validation.ValidaAlterarPet;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PetView {
@@ -46,4 +49,14 @@ public class PetView {
         return new Pet(nome, tipo, sexo, endereco, idade, peso, raca);
 
     }
+
+//    public String coletaCriterioAlterar(){
+//        MenuView.exibeMenuBuscar();
+//        String criterioEscolhido = sc.nextLine();
+//
+//        System.out.print("Digite o " + criterioEscolhido + " do pet: ");
+//        String criterios = sc.nextLine();
+//        return criterios;
+//    }
+
 }

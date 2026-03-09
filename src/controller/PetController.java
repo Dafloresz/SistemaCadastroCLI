@@ -1,8 +1,13 @@
 package controller;
 
 import entities.Pet;
+import exception.BuscarPetValidationException;
 import service.PetService;
+import service.validation.ValidaAlterarPet;
+import view.MenuView;
 import view.PetView;
+
+import java.util.List;
 
 public class PetController {
     private PetView petView;
@@ -33,6 +38,8 @@ public class PetController {
 
     public void listarPetPorCriterio() {
         System.out.println("Opção selecionada: Listar pets por algum critério (idade, nome, raça)");
+       petService.buscaPetCriterio(petService.coletaCriterios(), petService.listaArquivos());
+
     }
 
 }

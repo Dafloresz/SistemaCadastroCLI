@@ -17,4 +17,23 @@ public class MenuView {
                6. Sair
                """;
     }
+    public static void exibeMenuBuscar(){
+        System.out.println();
+        System.out.println(menuBuscarPet());
+    }
+
+
+    public static String menuBuscarPet(){
+        return """
+               ----------- Buscar pet -----------
+               Selecione 1 ou 2 critérios!
+               
+               - Nome ou Sobrenome
+               - Sexo
+               - Idade
+               - Peso
+               - Raça
+               - Endereço
+               """;
+    }
 }
